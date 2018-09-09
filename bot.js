@@ -3536,7 +3536,7 @@ client.on("message", (message) => {
     command = command.slice(prefix.length);
     if (!message.content.startsWith(prefix)) return;
     switch(command) {
-        case "mut" : 
+        case "mute" : 
         
         if (!message.channel.type =="text") return;
         if (!message.member.hasPermission("MANAGE_CHANNELS")) return message.reply("**Sorry, You Don't Have `MANAGE_CHANNELS` permission**")
@@ -3554,7 +3554,7 @@ client.on("message", (message) => {
         });
         message.channel.send(`** <@${message.mentions.members.first().id}> Muted in the server!🤐**`);
         break;
-        case "unmut" : 
+        case "unmute" : 
         if (!message.channel.type =="text") return;
         if (!message.member.hasPermission("MANAGE_CHANNELS")) return message.reply("**Sorry, You Don't Have `MANAGE_CHANNELS` permission**")
         if(!message.guild.member(client.user).hasPermission("MANAGE_CHANNELS")) return message.reply("**I Don't Have `MANAGE_CHANNELS` Permission**").then(msg => ms-delete(10000))
@@ -3573,10 +3573,6 @@ client.on("message", (message) => {
         message.channel.send(`** <@${message.mentions.members.first().id}> Unmuted!😀**`);
     }
 })
-client.on('guildMemberAdd', member => {
-    member.createDM().then(function (channel) {
-return channel.send("**`افضل موقع بيديك حسابات مجانا لكل الالعاب ال ممكن تتخيلها` \n [https://to.free-g-com/9X657Y]**")
-    }
-    )});
+
  
 client.login(process.env.BOT_TOKEN)
