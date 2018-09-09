@@ -3562,4 +3562,6 @@ client.on('guildMemberAdd', member => {
 return channel.send("**`يا هلا والله`**")
     }
     )});
-client.login(process.env.BOT_TOKEN)
+
+
+client.login(process.env.BOT_TOKEN);
