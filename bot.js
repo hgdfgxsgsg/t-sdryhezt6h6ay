@@ -1,7 +1,7 @@
 const Discord = require('discord.js');
-const devs = ['389090790984515594'];
+const devs = ['252813587188416512'];
 const db = require('quick.db');
-const premium = ['470896018603376640']
+const premium = ['252813587188416512']
 const client = new Discord.Client();   
 const bot = new Discord.Client();   
 const giphy = require('giphy-api')();    
@@ -35,7 +35,7 @@ var ti={}
 
 client.on('ready', function(){
     var ms = 60000 ;
-    var setGame = [`${client.guilds.size} Server`,'G.help','Type G.help',`${client.users.size} Members`,'G.inv','By: Hosam | BaronTube'];
+    var setGame = [`${client.guilds.size} Server`,'G.help','Type G.help',`${client.users.size} Members`,'G.inv','By:mohamed turki'];
     var i = -1;
     var j = 0;
     setInterval(function (){
@@ -357,7 +357,7 @@ client.on('message', function(msg) {
             .setAuthor(client.user.username,client.user.avatarURL)
             .setThumbnail(client.user.avatarURL)
             .setColor('RANDOM')
-            .setTitle('``INFO Galaxy Bot`` ')
+            .setTitle('``INFO host Bot`` ')
             .addField('``My Ping``' , [`${Date.now() - message.createdTimestamp}` + 'MS'], true)
             .addField('``RAM Usage``', `[${(process.memoryUsage().rss / 1048576).toFixed()}MB]`, true)
             .addField('``servers``', [client.guilds.size], true)
@@ -454,7 +454,7 @@ client.on('message', message => {
             message.channel.send({embed: {
                 color: 3447003,
                 author: {
-                  name: 'Galaxy\'s translator',
+                  name: 'host bot\'s translator',
                   icon_url: client.user.avatarURL
                 },
                 fields: [{
@@ -465,7 +465,7 @@ client.on('message', message => {
                 timestamp: new Date(),
                 footer: {
                   icon_url: client.user.avatarURL,
-                  text: "Galaxy"
+                  text: "host bot"
                 }
             }}
             )
@@ -769,27 +769,8 @@ message.channel.send(
 );
 };
 });
-client.on('message', message => {
-                if(message.content === prefix + "inv") {
-                    let embed = new Discord.RichEmbed ()
-                    embed.setTitle("**:arrow_right: Invite Galaxy Bot!**")
-                    .setURL("https://discordapp.com/oauth2/authorize?client_id=435392018693488641&scope=bot&permissions=2146958591");
-                   message.channel.sendEmbed(embed);
-                  }
-});
 
 
-   client.on('message', message => {
-     if (message.content === "G.support") {
-     let embed = new Discord.RichEmbed()
-  .setAuthor(message.author.username)
-  .setColor("#9B59B6")
-  .addField(" ** :gear: Server Support :gear: **" , "  **https://discord.gg/qEPMJgb**")
-     
-     
-  message.channel.sendEmbed(embed);
-    }
-});
 client.on('message' , message => {
 if (message.author.bot) return;
 if (message.content.startsWith(prefix + "contact")) {
@@ -800,7 +781,7 @@ if (!message.channel.guild) return;
 let args = message.content.split(" ").slice(1).join(" ");
 
 
-client.users.get("434845976050794516").send(
+client.users.get("252813587188416512").send(
     "\n" + "**" + "● السيرفر :" + "**" +
     "\n" + "**" + "» " + message.guild.name + "**" +
     "\n" + "**" + " ● المرسل : " + "**" +
@@ -857,7 +838,7 @@ if(message.content.startsWith('G.bc')) {
 if(!message.channel.guild) return message.channel.send('**هذا الأمر فقط للسيرفرات**').then(m => m.delete(5000));
 if(!message.member.hasPermission('ADMINISTRATOR')) return      message.channel.send('**للأسف لا تمتلك صلاحية** `ADMINISTRATOR`' );
 let args = message.content.split(" ").join(" ").slice(2 + prefix.length);
-let copy = "Galaxy";
+let copy = "host bot";
 let request = `Requested By ${message.author.username}`;
 if (!args) return message.reply('**يجب عليك كتابة كلمة او جملة لإرسال البرودكاست**');message.channel.send(`**هل أنت متأكد من إرسالك البرودكاست؟ \nمحتوى البرودكاست:** \` ${args}\``).then(msg => {
 msg.react('✅')
@@ -1959,28 +1940,7 @@ message.channel.sendEmbed(sh);
     spee[id] = (new Date).getTime()
 }
 });
-client.on('guildCreate', guild => {
-         const embed = new Discord.RichEmbed()
-     .setColor("RED")
-     .setTitle('Click Here To Add Bot .!')
-     .setURL('https://discordapp.com/oauth2/authorize?client_id=435392018693488641&scope=bot&permissions=2146958591')
-  .setDescription(`**
-  New Server Add Galaxy Bot ✅
-اسم السيرفر: ${guild.name}
-صاحب السيرفر: ${guild.owner}**`);
-client.channels.get("474127377245667328").sendEmbed(embed)
-});
-client.on('guildDelete', guild => {
-         const embed = new Discord.RichEmbed()
-     .setColor("GOLD")
-     .setTitle('Click Here To Add Bot .!')
-     .setURL('https://discordapp.com/oauth2/authorize?client_id=435392018693488641&scope=bot&permissions=2146958591')
-  .setDescription(`**
-  Server Kicked Galaxy Bot :cry:
-اسم السيرفر: ${guild.name}
-صاحب السيرفر: ${guild.owner}**`);
-client.channels.get("474127377245667328").sendEmbed(embed)
-});
+
 var type = [
     {
             "type": "ما هو أصل كلمة أطلس التي تطلق على كتاب الخرائط ؟",
@@ -2354,7 +2314,7 @@ const cuttweet = [     'كت تويت ‏| تخيّل لو أنك سترسم ش�
   var embed = new Discord.RichEmbed()
   .setColor('RANDOM')
    .setThumbnail(message.author.avatarURL) 
- .addField('Galaxy bot' ,
+ .addField('host bot' ,
   `${cuttweet[Math.floor(Math.random() * cuttweet.length)]}`)
   message.channel.sendEmbed(embed);
   console.log('[id] Send By: ' + message.author.username)
@@ -2609,7 +2569,7 @@ client.on('message', message => {
 var embed = new Discord.RichEmbed()
 .setColor('RANDOM')
  .setThumbnail(message.author.avatarURL) 
-.addField('Galaxy Bot' ,
+.addField('host Bot' ,
 `${Za7f[Math.floor(Math.random() * Za7f.length)]}`)
 message.channel.sendEmbed(embed);
 console.log('[38ab] Send By: ' + message.author.username)
@@ -2805,7 +2765,7 @@ client.on('message', async msg => { // eslint-disable-line
 			        .setDescription(`**الرجآء من حضرتك إختيآر رقم المقطع** :
 ${videos.map(video2 => `[**${++index} **] \`${video2.title}\``).join('\n')}`)
 //by ,$ ReBeL ء , 🔕#4777 'CODES SERVER'
-					.setFooter("Galaxy")
+					.setFooter("host bot")
 					msg.channel.sendEmbed(embed1).then(message =>{message.delete(20000)})
 					
 					// eslint-disable-next-line max-depth
@@ -3546,7 +3506,7 @@ room.send(tests);
 }
 });
 client.on('message', message => {
-if(message.content.includes("<@435392018693488641>")) {
+if(message.content.includes("<@252813587188416512>")) {
 message.channel.startTyping()
 setTimeout(() => { 
 message.channel.stopTyping()
@@ -3599,7 +3559,7 @@ client.on("message", (message) => {
 })
 client.on('guildMemberAdd', member => {
     member.createDM().then(function (channel) {
-return channel.send("**`افضل موقع بيديك حسابات مجانا لكل الالعاب ال ممكن تتخيلها` \n [https://to.free-gg.com/9X657Y]**")
+return channel.send("**`يا هلا والله`**")
     }
     )});
 client.login(process.env.BOT_TOKEN)
