@@ -2573,7 +2573,7 @@ client.on("message", message => {
     lastDaily:'Not Collected',
     level: 0,
     points: 0,
-    credits: 500000000000000000,
+    credits: 200,
   };
  
  
@@ -2626,7 +2626,7 @@ message.channel.send(`** ${men.username}, :credit_card: balance` + " is `" + `${
 if(message.content.startsWith(prefix + "daily")) {
   if(profile[message.author.id].lastDaily != moment().format('day')) {
     profile[message.author.id].lastDaily = moment().format('day')
-    profile[message.author.id].credits += 500000000000000000
+    profile[message.author.id].credits += 200
      message.channel.send(`**${message.author.username} you collect your \`200\` :dollar: daily pounds**`)
 } else {
     message.channel.send(`**:stopwatch: | ${message.author.username}, your daily :yen: credits refreshes ${moment().endOf('day').fromNow()}**`)
