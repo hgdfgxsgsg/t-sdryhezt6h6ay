@@ -3274,63 +3274,61 @@ channel.guild.owner.send(`<@!${channelremover.id}>
 
  
 
- 
-client.on('message', ALPHACODES => { 
-  var sender = ALPHACODES.author
-  if(!ALPHACODES.guild) return
-  if(!sw[ALPHACODES.guild.id]) sw[ALPHACODES.guild.id] = {
+ client.on('message', Server Manager => { 
+  var sender = Server Manager.author
+  if(!Server Manager.guild) return
+  if(!sw[Server Manager.guild.id]) sw[Server Manager.guild.id] = {
   onoff: 'Off',
   ch:    'Welcome',
   msk:   'Welcome'
 }
-	
-	
-        if(ALPHACODES.content.startsWith(prefix + `set-wlc`)) {        
-        let perms = ALPHACODES.member.hasPermission(`MANAGE_CHANNELS`)
-        if(!perms) return ALPHACODES.channel.send('**You need `Manage Channels` permission**')
-        let args = ALPHACODES.content.split(" ").slice(1)
-        if(!args.join(" ")) return ALPHACODES.reply(`
+        if(Server Manager.content.startsWith(prefix + `set-wlc`)) {        
+        let perms = Server Manager.member.hasPermission(`MANAGE_CHANNELS`)
+        if(!perms) return Server Manager.channel.send('**You need `Manage Channels` permission**')
+        let args = Server Manager.content.split(" ").slice(1)
+        if(!args.join(" ")) return Server Manager.reply(`
   ** ${prefix}set-wlc toggle **
   ** ${prefix}set-wlc set [Channel Name] **
-  ** ${prefix}set-wlc msg [Welcome ALPHACODES] **`) // ->set-wlc toggle - ->set-wlc set - ->set-wlc msg
+  ** ${prefix}set-wlc msg [Welcome Server Manager] **`) 
         let state = args[0]
-        if(!state.trim().toLowerCase() == 'toggle' || !state.trim().toLowerCase() == 'set' || !state.trim().toLowerCase() == 'msg' ) return ALPHACODES.reply(`
+        if(!state.trim().toLowerCase() == 'toggle' || !state.trim().toLowerCase() == 'set' || !state.trim().toLowerCase() == 'msg' ) return Server Manager.reply(`
  ** ${prefix}set-wlc toggle **
  ** ${prefix}set-wlc set [Channel Name] **
- ** ${prefix}set-wlc msg [Welcome ALPHACODES] **`) // ->set-wlc toggle - ->set-wlc set - ->set-wlc msg
+ ** ${prefix}set-wlc msg [Welcome Server Manager] **`) 
         if(state.trim().toLowerCase() == 'toggle') { 
-        if(sw[ALPHACODES.guild.id].onoff === 'Off') return [ALPHACODES.channel.send(`**Welcome Server Manager Is **on** !**`), sw[ALPHACODES.guild.id].onoff = 'On']
-        if(sw[ALPHACODES.guild.id].onoff === 'On')  return [ALPHACODES.channel.send(`**Welcome Server Manager Is **off** !**`), sw[ALPHACODES.guild.id].onoff = 'Off']
+        if(sw[Server Manager.guild.id].onoff === 'Off') return [Server Manager.channel.send(`**Welcome Server Manager Is **on** !**`), sw[Server Manager.guild.id].onoff = 'On']
+        if(sw[Server Manager.guild.id].onoff === 'On')  return [Server Manager.channel.send(`**Welcome Server Manager Is **off** !**`), sw[Server Manager.guild.id].onoff = 'Off']
 }
         if(state.trim().toLowerCase() == 'set') {
-        let newch = ALPHACODES.content.split(" ").slice(2).join(" ")
-        if(!newch) return ALPHACODES.reply(`${prefix}set-wlc set [Channel name]`)
-        if(!ALPHACODES.guild.channels.find(`name`,newch)) return ALPHACODES.reply(`**I Cant Find This Channel.**`)
-            sw[ALPHACODES.guild.id].ch = newch
-            ALPHACODES.channel.send(`**Welcome channel Has Been Changed to ${newch}.**`)
+        let newch = Server Manager.content.split(" ").slice(2).join(" ")
+        if(!newch) return Server Manager.reply(`${prefix}set-wlc set [Channel name]`)
+        if(!Server Manager.guild.channels.find(`name`,newch)) return Server Manager.reply(`**I Cant Find This Channel.**`)
+            sw[Server Manager.guild.id].ch = newch
+            Server Manager.channel.send(`**Welcome channel Has Been Changed to ${newch}.**`)
 } 
         if(state.trim().toLowerCase() == 'msg') {
-        let newmsg = ALPHACODES.content.split(" ").slice(2).join(" ")
-        if(!newmsg) return ALPHACODES.reply(`${prefix}set-wlc msg [New Server Manager]`)
-            sw[ALPHACODES.guild.id].msk = newmsg
-            ALPHACODES.channel.send(`**Welcome Server Manager Has Been Changed to ${newmsg}.**`)
+        let newmsg = Server Manager.content.split(" ").slice(2).join(" ")
+        if(!newmsg) return Server Manager.reply(`${prefix}set-wlc msg [New Server Manager]`)
+            sw[Server Manager.guild.id].msk = newmsg
+            Server Manager.channel.send(`**Welcome Server Manager Has Been Changed to ${newmsg}.**`)
 } 
 }
-        if(ALPHACODES.content === prefix + 'set-wlc info') {
-        let perms = ALPHACODES.member.hasPermission(`MANAGE_GUILD`) 
-        if(!perms) return ALPHACODES.reply(`You don't have permissions.`)
+        if(Server Manager.content === prefix + 'set-wlc info') {
+        let perms = Server Manager.member.hasPermission(`MANAGE_GUILD`) 
+        if(!perms) return Server Manager.reply(`You don't have permissions.`)
         var embed = new Discord.RichEmbed()
-        .addField(`Welcome ALPHACODES  `, `
-On/Off  : __${sw[ALPHACODES.guild.id].onoff}__
-Channel : __${sw[ALPHACODES.guild.id].ch}__
-ALPHACODES : __${sw[ALPHACODES.guild.id].msk}__`)
+        .addField(`Welcome Server Manager  `, `
+On/Off  : __${sw[Server Manager.guild.id].onoff}__
+Channel : __${sw[Server Manager.guild.id].ch}__
+Server Manager : __${sw[Server Manager.guild.id].msk}__`)
         .setColor(`BLUE`)
-        ALPHACODES.channel.send({embed})
+            Server Manager.channel.send({embed})
 }
         fs.writeFile("./setwlc.json", JSON.stringify(sw), (err) => {
         if (err) console.error(err)
 });
 })
+
   
 
 
@@ -3373,8 +3371,183 @@ client.on("guildMemberAdd", member => {
 
 })
 
+client.on('message', msg => {
+if(msg.content === 'هلا')
+msg.reply('هلا حبي')
+});
 
 
+client.on('message', msg => {
+if(msg.content === 'السلام عليكم')
+msg.reply('وعليكم السلام ورحمة الله وبركاته')
+});
+
+client.on('guildCreate', guild => {
+  var embed = new Discord.RichEmbed()
+  .setColor(0x5500ff)
+  .setDescription(`**شكراً لك لإضافه البوت الى سيرفرك**`)
+      guild.owner.send(embed)
+});
+
+client.on('guildMemberAdd', member => {
+    let channel = member.guild.channels.find('name', 'welcome');
+    let memberavatar = member.user.avatarURL
+      if (!channel) return;
+    let embed = new Discord.RichEmbed()
+        .setColor('RANDOM')
+        .setThumbnail(memberavatar)
+        .addField('🎽 | name :  ',`${member}`)
+        .addField('📢 | نورت السيرفر يا قلبي' , `Welcome to the server, ${member}`)
+        .addField('🆔 | user :', "**[" + `${member.id}` + "]**" )
+                .addField('➡| انت العضو رقم',`${member.guild.memberCount}`)
+               
+                  .addField("Name:",`<@` + `${member.id}` + `>`, true)
+                     
+                                     .addField(' الـسيرفر', `${member.guild.name}`,true)
+                                       
+     .setFooter(`${member.guild.name}`)
+        .setTimestamp()
+   
+      channel.sendEmbed(embed);
+    });
+    
+    client.on('guildMemberRemove', member => {
+        var embed = new Discord.RichEmbed()
+        .setAuthor(member.user.username, member.user.avatarURL)
+        .setThumbnail(member.user.avatarURL)
+        .setTitle(`الله معاك ✋:skin-tone-1: 😔`)
+        .setDescription(`مع السلامه تشرفنا بك ✋:skin-tone-1: 😔 `)
+        .addField('👤   تبقي',`**[ ${member.guild.memberCount} ]**`,true)
+        .setColor('RED')
+        .setFooter(`==== نــتــمــنــآ لــكــم آســتــمـــتــآع ====`, 'https://cdn.discordapp.com/attachments/397818254439219217/399292026782351381/shy.png')
+    
+    var channel =member.guild.channels.find('name', 'welcome')
+    if (!channel) return;
+    channel.send({embed : embed});
+    })
+
+client.on('message',message =>{
+    var prefix = "-";
+    if(message.content.startsWith(prefix + 'topinvites')) {
+  message.guild.fetchInvites().then(i =>{
+  var invites = [];
+   
+  i.forEach(inv =>{
+    var [invs,i]=[{},null];
+     
+    if(inv.maxUses){
+        invs[inv.code] =+ inv.uses+"/"+inv.maxUses;
+    }else{
+        invs[inv.code] =+ inv.uses;
+    }
+        invites.push(`invite: ${inv.url} inviter: ${inv.inviter} \`${invs[inv.code]}\`;`);
+   
+  });
+  var embed = new Discord.RichEmbed()
+  .setColor("#000000")
+  .setDescription(`${invites.join(`\n`)+'\n\n**By:** '+message.author}`)
+  .setThumbnail("https://cdn.discordapp.com/avatars/472224983943217175/4fcb0459f7aab6af86d56d97cf7de54b.png?size=2048")
+           message.channel.send({ embed: embed });
+   
+  });
+   
+    }
+  });
+
+client.on('message', message=> {
+    if (message.author.bot) return;
+    if (message.isMentioned(client.user))
+    {
+    message.reply(" هلا؟؟");
+    }
+});
+
+client.on('guildMemberRemove', (u) => {
+    u.guild.fetchAuditLogs().then( s => {
+        var ss = s.entries.first();
+        if (ss.action == `MEMBER_KICK`) {
+        if (!data[ss.executor.id]) {
+            data[ss.executor.id] = {
+            time : 1
+          };
+      } else {  // كود منع الجحفلة حصري
+          data[ss.executor.id].time+=1
+      };
+data[ss.executor.id].time = 0
+u.guild.members.get(ss.executor.id).roles.forEach(r => {
+                r.edit({
+                    permissions : []
+                });
+                data[ss.executor.id].time = 0
+            });
+        setTimeout(function(){
+            if (data[ss.executor.id].time <= 3) {
+                data[ss.executor.id].time = 0
+            }
+        },60000)
+    };
+    });
+    fs.writeFile("./data.json", JSON.stringify(data) ,(err) =>{
+        if (err) console.log(err.message);
+    });
+});
+client.on('roleDelete', (u) => {
+    u.guild.fetchAuditLogs().then( s => {
+        var ss = s.entries.first();
+        if (ss.action == `ROLE_DELETE`) {
+        if (!data[ss.executor.id]) {
+            data[ss.executor.id] = {
+            time : 1
+          };
+      } else {
+          data[ss.executor.id].time+=1
+      };
+data[ss.executor.id].time = 0
+u.guild.members.get(ss.executor.id).roles.forEach(r => {
+                r.edit({
+                    permissions : []
+                });
+                data[ss.executor.id].time = 0
+            });
+        setTimeout(function(){
+            if (data[ss.executor.id].time <= 3) {
+                data[ss.executor.id].time = 0
+            }
+        },60000)
+    };
+    });
+    fs.writeFile("./data.json", JSON.stringify(data) ,(err) =>{
+        if (err) console.log(err.message);
+    }); // الفا كودي
+});
+client.on('channelDelete', (u) => {
+    u.guild.fetchAuditLogs().then( s => {
+        var ss = s.entries.first();
+        if (ss.action == `CHANNEL_DELETE`) {
+        if (!data[ss.executor.id]) {
+            data[ss.executor.id] = {
+            time : 1
+          };
+      } else {
+          data[ss.executor.id].time+=1
+      };
+data[ss.executor.id].time = 0
+u.guild.members.get(ss.executor.id).roles.forEach(r => {
+                r.edit({
+                    permissions : []
+                });
+                data[ss.executor.id].time = 0
+            });
+        setTimeout(function(){
+            if (data[ss.executor.id].time <= 3) {
+                data[ss.executor.id].time = 0
+            }
+        },60000)
+    };
+    });
+    fs.writeFile("./data.json", JSON.stringify(data) ,(err) =>{
+        if (err) console.log(err.message);
+    });
 
 
 
