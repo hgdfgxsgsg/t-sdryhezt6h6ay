@@ -3272,62 +3272,60 @@ channel.guild.owner.send(`<@!${channelremover.id}>
 
  
 
-
-client.on('message', Server Manager => { 
-  var sender = Server Manager.author
-  if(!Server Manager.guild) return
-  if(!sw[Server Manager.guild.id]) sw[Server Manager.guild.id] = {
+client.on('message', ALPHACODES => { 
+  var sender = ALPHACODES.author
+  if(!ALPHACODES.guild) return
+  if(!sw[ALPHACODES.guild.id]) sw[ALPHACODES.guild.id] = {
   onoff: 'Off',
   ch:    'Welcome',
   msk:   'Welcome'
 }
-        if(Server Manager.content.startsWith(prefix + `set-wlc`)) {        
-        let perms = Server Manager.member.hasPermission(`MANAGE_CHANNELS`)
-        if(!perms) return Server Manager.channel.send('**You need `Manage Channels` permission**')
-        let args = Server Manager.content.split(" ").slice(1)
-        if(!args.join(" ")) return Server Manager.reply(`
+        if(ALPHACODES.content.startsWith(prefix + `set-wlc`)) {        
+        let perms = ALPHACODES.member.hasPermission(`MANAGE_CHANNELS`)
+        if(!perms) return ALPHACODES.channel.send('**You need `Manage Channels` permission**')
+        let args = ALPHACODES.content.split(" ").slice(1)
+        if(!args.join(" ")) return ALPHACODES.reply(`
   ** ${prefix}set-wlc toggle **
   ** ${prefix}set-wlc set [Channel Name] **
-  ** ${prefix}set-wlc msg [Welcome Server Manager] **`) // ->set-wlc toggle - ->set-wlc set - ->set-wlc msg
+  ** ${prefix}set-wlc msg [Welcome ALPHACODES] **`) 
         let state = args[0]
-        if(!state.trim().toLowerCase() == 'toggle' || !state.trim().toLowerCase() == 'set' || !state.trim().toLowerCase() == 'msg' ) return Server Manager.reply(`
+        if(!state.trim().toLowerCase() == 'toggle' || !state.trim().toLowerCase() == 'set' || !state.trim().toLowerCase() == 'msg' ) return ALPHACODES.reply(`
  ** ${prefix}set-wlc toggle **
  ** ${prefix}set-wlc set [Channel Name] **
- ** ${prefix}set-wlc msg [Welcome Server Manager] **`) // ->set-wlc toggle - ->set-wlc set - ->set-wlc msg
+ ** ${prefix}set-wlc msg [Welcome ALPHACODES] **`) 
         if(state.trim().toLowerCase() == 'toggle') { 
-        if(sw[Server Manager.guild.id].onoff === 'Off') return [Server Manager.channel.send(`**Welcome Server Manager Is **on** !**`), sw[Server Manager.guild.id].onoff = 'On']
-        if(sw[Server Manager.guild.id].onoff === 'On')  return [Server Manager.channel.send(`**Welcome Server Manager Is **off** !**`), sw[Server Manager.guild.id].onoff = 'Off']
+        if(sw[ALPHACODES.guild.id].onoff === 'Off') return [ALPHACODES.channel.send(`**Welcome ALPHACODES Is **on** !**`), sw[ALPHACODES.guild.id].onoff = 'On']
+        if(sw[ALPHACODES.guild.id].onoff === 'On')  return [ALPHACODES.channel.send(`**Welcome ALPHACODES Is **off** !**`), sw[ALPHACODES.guild.id].onoff = 'Off']
 }
         if(state.trim().toLowerCase() == 'set') {
-        let newch = Server Manager.content.split(" ").slice(2).join(" ")
-        if(!newch) return Server Manager.reply(`${prefix}set-wlc set [Channel name]`)
-        if(!Server Manager.guild.channels.find(`name`,newch)) return Server Manager.reply(`**I Cant Find This Channel.**`)
-            sw[Server Manager.guild.id].ch = newch
-            Server Manager.channel.send(`**Welcome channel Has Been Changed to ${newch}.**`)
+        let newch = ALPHACODES.content.split(" ").slice(2).join(" ")
+        if(!newch) return ALPHACODES.reply(`${prefix}set-wlc set [Channel name]`)
+        if(!ALPHACODES.guild.channels.find(`name`,newch)) return ALPHACODES.reply(`**I Cant Find This Channel.**`)
+            sw[ALPHACODES.guild.id].ch = newch
+            ALPHACODES.channel.send(`**Welcome channel Has Been Changed to ${newch}.**`)
 } 
         if(state.trim().toLowerCase() == 'msg') {
-        let newmsg = Server Manager.content.split(" ").slice(2).join(" ")
-        if(!newmsg) return Server Manager.reply(`${prefix}set-wlc msg [New Server Manager]`)
-            sw[Server Manager.guild.id].msk = newmsg
-            Server Manager.channel.send(`**Welcome Server Manager Has Been Changed to ${newmsg}.**`)
+        let newmsg = ALPHACODES.content.split(" ").slice(2).join(" ")
+        if(!newmsg) return ALPHACODES.reply(`${prefix}set-wlc msg [New ALPHACODES]`)
+            sw[ALPHACODES.guild.id].msk = newmsg
+            ALPHACODES.channel.send(`**Welcome ALPHACODES Has Been Changed to ${newmsg}.**`)
 } 
 }
-        if(Server Manager.content === prefix + 'set-wlc info') {
-        let perms = Server Manager.member.hasPermission(`MANAGE_GUILD`) 
-        if(!perms) return Server Manager.reply(`You don't have permissions.`)
+        if(ALPHACODES.content === prefix + 'set-wlc info') {
+        let perms = ALPHACODES.member.hasPermission(`MANAGE_GUILD`) 
+        if(!perms) return ALPHACODES.reply(`You don't have permissions.`)
         var embed = new Discord.RichEmbed()
-        .addField(`Welcome Server Manager  `, `
-On/Off  : __${sw[Server Manager.guild.id].onoff}__
-Channel : __${sw[Server Manager.guild.id].ch}__
-Server Manager : __${sw[Server Manager.guild.id].msk}__`)
+        .addField(`Welcome ALPHACODES  `, `
+On/Off  : __${sw[ALPHACODES.guild.id].onoff}__
+Channel : __${sw[ALPHACODES.guild.id].ch}__
+ALPHACODES : __${sw[ALPHACODES.guild.id].msk}__`)
         .setColor(`BLUE`)
-        Server Manager.channel.send({embed})
+        ALPHACODES.channel.send({embed})
 }
         fs.writeFile("./setwlc.json", JSON.stringify(sw), (err) => {
         if (err) console.error(err)
 });
 })
-
 
 
 
