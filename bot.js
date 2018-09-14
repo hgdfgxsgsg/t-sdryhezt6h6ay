@@ -3272,64 +3272,63 @@ channel.guild.owner.send(`<@!${channelremover.id}>
 
  
 
- 
-
- client.on('message', Server Manager => { 
-  var sender = Server Manager.author
-  if(!Server Manager.guild) return
-  if(!sw[Server Manager.guild.id]) sw[Server Manager.guild.id] = {
+ client.on('message', MEGA => { 
+  var sender = MEGA.author
+  if(!MEGA.guild) return
+  if(!sw[MEGA.guild.id]) sw[MEGA.guild.id] = {
   onoff: 'Off',
   ch:    'Welcome',
   msk:   'Welcome'
 }
-        if(Server Manager.content.startsWith(prefix + `set-wlc`)) {        
-        let perms = Server Manager.member.hasPermission(`MANAGE_CHANNELS`)
-        if(!perms) return Server Manager.channel.send('**You need `Manage Channels` permission**')
-        let args = Server Manager.content.split(" ").slice(1)
-        if(!args.join(" ")) return Server Manager.reply(`
+        if(MEGA.content.startsWith(prefix + `set-wlc`)) {        
+        let perms = MEGA.member.hasPermission(`MANAGE_CHANNELS`)
+        if(!perms) return MEGA.channel.send('**You need `Manage Channels` permission**')
+        let args = MEGA.content.split(" ").slice(1)
+        if(!args.join(" ")) return MEGA.reply(`
   ** ${prefix}set-wlc toggle **
   ** ${prefix}set-wlc set [Channel Name] **
-  ** ${prefix}set-wlc msg [Welcome Server Manager] **`) 
+  ** ${prefix}set-wlc msg [Welcome MEGA] **`) // ->set-wlc toggle - ->set-wlc set - ->set-wlc msg
         let state = args[0]
-        if(!state.trim().toLowerCase() == 'toggle' || !state.trim().toLowerCase() == 'set' || !state.trim().toLowerCase() == 'msg' ) return Server Manager.reply(`
+        if(!state.trim().toLowerCase() == 'toggle' || !state.trim().toLowerCase() == 'set' || !state.trim().toLowerCase() == 'msg' ) return MEGA.reply(`
  ** ${prefix}set-wlc toggle **
  ** ${prefix}set-wlc set [Channel Name] **
- ** ${prefix}set-wlc msg [Welcome Server Manager] **`) 
+ ** ${prefix}set-wlc msg [Welcome MEGA] **`) // ->set-wlc toggle - ->set-wlc set - ->set-wlc msg
         if(state.trim().toLowerCase() == 'toggle') { 
-        if(sw[Server Manager.guild.id].onoff === 'Off') return [Server Manager.channel.send(`**Welcome Server Manager Is **on** !**`), sw[Server Manager.guild.id].onoff = 'On']
-        if(sw[Server Manager.guild.id].onoff === 'On')  return [Server Manager.channel.send(`**Welcome Server Manager Is **off** !**`), sw[Server Manager.guild.id].onoff = 'Off']
+        if(sw[MEGA.guild.id].onoff === 'Off') return [MEGA.channel.send(`**Welcome MEGA Is **on** !**`), sw[MEGA.guild.id].onoff = 'On']
+        if(sw[MEGA.guild.id].onoff === 'On')  return [MEGA.channel.send(`**Welcome MEGA Is **off** !**`), sw[MEGA.guild.id].onoff = 'Off']
 }
         if(state.trim().toLowerCase() == 'set') {
-        let newch = Server Manager.content.split(" ").slice(2).join(" ")
-        if(!newch) return Server Manager.reply(`${prefix}set-wlc set [Channel name]`)
-        if(!Server Manager.guild.channels.find(`name`,newch)) return Server Manager.reply(`**I Cant Find This Channel.**`)
-            sw[Server Manager.guild.id].ch = newch
-            Server Manager.channel.send(`**Welcome channel Has Been Changed to ${newch}.**`)
+        let newch = MEGA.content.split(" ").slice(2).join(" ")
+        if(!newch) return MEGA.reply(`${prefix}set-wlc set [Channel name]`)
+        if(!MEGA.guild.channels.find(`name`,newch)) return MEGA.reply(`**I Cant Find This Channel.**`)
+            sw[MEGA.guild.id].ch = newch
+            MEGA.channel.send(`**Welcome channel Has Been Changed to ${newch}.**`)
 } 
         if(state.trim().toLowerCase() == 'msg') {
-        let newmsg = Server Manager.content.split(" ").slice(2).join(" ")
-        if(!newmsg) return Server Manager.reply(`${prefix}set-wlc msg [New Server Manager]`)
-            sw[Server Manager.guild.id].msk = newmsg
-            Server Manager.channel.send(`**Welcome Server Manager Has Been Changed to ${newmsg}.**`)
+        let newmsg = MEGA.content.split(" ").slice(2).join(" ")
+        if(!newmsg) return MEGA.reply(`${prefix}set-wlc msg [New MEGA]`)
+            sw[MEGA.guild.id].msk = newmsg
+            MEGA.channel.send(`**Welcome MEGA Has Been Changed to ${newmsg}.**`)
 } 
 }
-        if(Server Manager.content === prefix + 'set-wlc info') {
-        let perms = Server Manager.member.hasPermission(`MANAGE_GUILD`) 
-        if(!perms) return Server Manager.reply(`You don't have permissions.`)
+        if(MEGA.content === prefix + 'set-wlc info') {
+        let perms = MEGA.member.hasPermission(`MANAGE_GUILD`) 
+        if(!perms) return MEGA.reply(`You don't have permissions.`)
         var embed = new Discord.RichEmbed()
-        .addField(`Welcome Server Manager  `, `
-On/Off  : __${sw[Server Manager.guild.id].onoff}__
-Channel : __${sw[Server Manager.guild.id].ch}__
-Server Manager : __${sw[Server Manager.guild.id].msk}__`)
+        .addField(`Welcome MEGA  `, `
+On/Off  : __${sw[MEGA.guild.id].onoff}__
+Channel : __${sw[MEGA.guild.id].ch}__
+MEGA : __${sw[MEGA.guild.id].msk}__`)
         .setColor(`BLUE`)
-            Server Manager.channel.send({embed})
+            MEGA.channel.send({embed})
 }
         fs.writeFile("./setwlc.json", JSON.stringify(sw), (err) => {
         if (err) console.error(err)
 });
 })
 
-  
+
+
 
 
 
