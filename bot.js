@@ -3933,7 +3933,7 @@ client.on('voiceStateUpdate', (voiceOld, voiceNew) => {
 const clans = {};
 const system = {};
 const level = {};
-const prefix = "-"
+
  
  
 client.on('message',async message => {
@@ -3962,8 +3962,8 @@ client.on('message',async message => {
     };
  
   }
-  if(message.content.startsWith(prefix + "clan")) {
-    if(message.content.split(' ')[0] !== `${prefix}clan`) return;
+  if(message.content.startsWith("-clan")) {
+    if(message.content.split(' ')[0] !== `-clan`) return;
  
     if(!args[1] || args[1] && args[1] === 'info') {
   let embed = new Discord.RichEmbed()
