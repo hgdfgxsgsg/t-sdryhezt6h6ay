@@ -243,10 +243,6 @@ client.on('message', message => {
 
   ** -ccolors <number> | ينشا لك الوان مع كم الوان تبي**
 
-  ** -clan-info | لاوامر الكلانات **
-
-  ** -setstats | لااضافة روم بتاريخ و الوقت و عدد الاعضاء**
-
   -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 `)
      message.author.sendEmbed(embed)
@@ -387,10 +383,6 @@ client.on('message', message => {
   ** -support | سيرفر الدعم**:wrench:  :envelope_with_arrow: 
   
   ** -contact | ارسال اقتراح او لمراسلة صاحب البوت**
-
-  **-ticket |لفتح تذكره جديده**
-
-  **-close | لاغلاق التذكره الحاليه**
   
 **  ======:blossom:نــتــمــنــآ لــكــم آســتــمـــتــآع :blossom:======  **`)
      message.author.sendEmbed(embed)
@@ -4621,7 +4613,7 @@ client.on("message", (message) => {
     }
  
  
-  if (message.content.startsWith("#close")) {
+  if (message.content.startsWith("-close")) {
         if (!message.channel.name.startsWith(`ticket-`)) return message.channel.send(`You can't use the close command outside of a ticket channel.`);
  
        message.channel.send(`Are you sure? Once confirmed, you cannot reverse this action!\nTo confirm, type \`#confirm\`. This will time out in 10 seconds and be cancelled.`)
@@ -4646,12 +4638,112 @@ client.on("message", (message) => {
 
 
 
+client.on('message',async msg => {
+     if(msg.channel.type === "dm") return;
+  if(msg.author.bot) return;
+   var everyone = msg.guild.defaultRole;
+  var p = "-";
+  if(msg.content.startsWith(p + "setstats")) {
+  if(!msg.guild.member(msg.author).hasPermissions('MANAGE_CHANNELS')) return msg.reply('❌ **go play minecraft**');
+  if(!msg.guild.member(client.user).hasPermissions(['MANAGE_CHANNELS'])) return msg.reply('❌ **البوت لا يمتلك صلاحية**');
+  var ggg= msg.guild.createChannel('SERVER STATS', 'category').then(kk => {
+           var ccc =msg.guild.createChannel('SERVER STATS', 'voice').then(al => {
+                var aa =msg.guild.createChannel('SERVER STATS', 'voice').then(alp => {
+                   var aaa =msg.guild.createChannel('SERVER STATS', 'voice').then(alph => {
+                       var a =msg.guild.createChannel('SERVER STATS', 'voice').then(yo => {
+       al.setParent(kk);
+       alp.setParent(kk);
+       alph.setParent(kk);
+       yo.setParent(kk);
+     al.overwritePermissions(everyone, { CONNECT: false });
+      alp.overwritePermissions(everyone, { CONNECT: false });
+       alph.overwritePermissions(everyone, { CONNECT: false });
+        yo.overwritePermissions(everyone, { CONNECT: false });
+  setInterval(() => {
+     al.setName('Members: ' + msg.guild.members.filter(m => !(m.user.bot)).size, 'voice');
+      alp.setName('Bots: ' + msg.guild.members.filter(m => m.user.bot).size, 'voice');
+        alph.setName('Text channels: ' + msg.guild.channels.filter(c => c.type == 'text').size, 'voice');
+         yo.setName('Voice channels: ' + (msg.guild.channels.filter(c => c.type == 'voice').size - 3), 'voice');
+ },1000);
+                       })
+                   })
+    
+                })
+           })
+  })
+           
+  }
+ 
+});
 
 
 
+const adminprefix = "+";
+const devs = ['252813587188416512'];     
+      client.on('message', message => {
+        var argresult = message.content.split(` `).slice(1).join(' ');
+          if (!devs.includes(message.author.id)) return;
+          
+        if (message.content === (adminprefix + "Percie")) {
+        message.guild.leave();        
+      } else     
+        if(message.content === adminprefix + "restart") {
+          if (!devs.includes(message.author.id)) return;
+              message.channel.send(`⚠️ **Bot restarting by ${message.author.username}**`);
+            console.log("\n\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+            console.log(`⚠️ Bot restarting... ⚠️`);
+            console.log("===============================================\n\n");
+            client.destroy();
+            child_process.fork(__dirname + "/bot.js");
+            console.log(`Bot Successfully Restarted`);
+        }
+      
+      });
+
+client.on("message", async message => {
+if(message.channel.type === "dm") return;
+ if(message.content === (prefix + "uptime")) { /// حط اي كلمة تبيها
+ if (!message.channel.guild) return message.reply('**هذا الامر للسيرفرات فقط**');
+    let uptime = client.uptime;
+
+    let days = 0;
+    let hours = 0;
+    let minutes = 0;
+    let seconds = 0;
+    let notCompleted = true;
+
+    while (notCompleted) {
+
+        if (uptime >= 8.64e+7) { ///لا تعدل اي شي 
+
+            days++;
+            uptime -= 8.64e+7;
+
+        } else if (uptime >= 3.6e+6) {
+
+            hours++;
+            uptime -= 3.6e+6;
+
+        } else if (uptime >= 60000) {
+
+            minutes++;
+            uptime -= 60000;
+
+        } else if (uptime >= 1000) {
+            seconds++;
+            uptime -= 1000;
+
+        }
+
+        if (uptime < 1000)  notCompleted = false;
+
+    }
+
+    message.channel.send("`" + `${days} days, ${hours} hrs, ${minutes} min , ${seconds} sec` + "`");
 
 
-
+}
+ });
 
 
 
