@@ -29,15 +29,12 @@ const sql = require("sqlite");
 
 
 client.on("message", message => {
-	var prefix = "-";
  if (message.content === "-help**)(") {
   const embed = new Discord.RichEmbed() 
       .setColor("#000000") 
       .setDescription(`
 	  
 	         Please Chose: 
-			 
-${prefix}help1 ⇏    **  | لعرض جميع اوامر البوت**  
 
 ${prefix}help-p ⇏    **  | لعرض الاوامر العامه**  
 
