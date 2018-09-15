@@ -242,7 +242,7 @@ client.on('message', message => {
   ** -delet <name> | مسح الشات او الرووم فويس**
 
   ** -ccolors <number> | ينشا لك الوان مع كم الوان تبي**
-
+by :mohamed turki
   -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 `)
      message.author.sendEmbed(embed)
@@ -285,6 +285,7 @@ client.on('message', message => {
   ** -فوائد نصائح | هلتعلم ** :video_game: 
   
   ** -يعطيك عقابات قاسية |عقاب** :video_game: 
+by :mohamed turki
    `)
    message.author.sendEmbed(embed)
    
@@ -314,7 +315,7 @@ client.on('message', message => {
   ** -np | لمعرفة الأغنية المشغلة حآليا**
 
   ** -queue | لمعرفة قآئمة التشغيل**
-  
+  by :mohamed turki
   `)
      message.author.sendEmbed(embed)
      }
@@ -383,7 +384,7 @@ client.on('message', message => {
   ** -support | سيرفر الدعم**:wrench:  :envelope_with_arrow: 
   
   ** -contact | ارسال اقتراح او لمراسلة صاحب البوت**
-  
+  by :mohamed turki
 **  ======:blossom:نــتــمــنــآ لــكــم آســتــمـــتــآع :blossom:======  **`)
      message.author.sendEmbed(embed)
      
