@@ -243,6 +243,10 @@ client.on('message', message => {
 
   ** -ccolors <number> | ينشا لك الوان مع كم الوان تبي**
 
+  ** -clan-info | لاوامر الكلانات **
+
+  ** -setstats | لااضافة روم بتاريخ و الوقت و عدد الاعضاء**
+
   -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 `)
      message.author.sendEmbed(embed)
@@ -383,6 +387,10 @@ client.on('message', message => {
   ** -support | سيرفر الدعم**:wrench:  :envelope_with_arrow: 
   
   ** -contact | ارسال اقتراح او لمراسلة صاحب البوت**
+
+  **-ticket |لفتح تذكره جديده**
+
+  **-close | لاغلاق التذكره الحاليه**
   
 **  ======:blossom:نــتــمــنــآ لــكــم آســتــمـــتــآع :blossom:======  **`)
      message.author.sendEmbed(embed)
