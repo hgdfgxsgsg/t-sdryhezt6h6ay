@@ -2776,7 +2776,7 @@ client.on('message', message => {
    if(!message.channel.guild) return;
 if(message.content.startsWith(prefix + 'clear')) {
 if(!message.channel.guild) return message.channel.send('**This Command is Just For Servers**').then(m => m.delete(5000));
-if(!message.member.hasPermission('MANAGE_MESSAGES')) return      message.channel.send('**You Do not have permission** `MANAGE_MESSAGES`' );
+if(!message.member.hasPermission('ADMINISTRATOR')) return      message.channel.send('**You Do not have permission** `ADMINISTRATOR`' );
 let args = message.content.split(" ").join(" ").slice(2 + prefix.length);
 let request = `Requested By ${message.author.username}`;
 message.channel.send(`**Are You sure you want to clear the chat?**`).then(msg => {
@@ -2811,6 +2811,11 @@ msg.delete();
 })
 }
 });
+
+  
+  
+
+
 
 client.on("message", (message) => {
 if (message.content.startsWith("-ct")) {
@@ -4539,7 +4544,16 @@ if(message.channel.type === "dm") return;
 
 
 
-
+  client.on('messageUpdate', (oldRebel, newRebel) => {
+    console.log("عصو مآ يحآول التعديل.");
+   if (newRebel.content.toUpperCase().match(/DISCORD.GG/i))
+    {
+        console.log(newRebel.author.name + " حاول النشر عبر تعديل الرسآلة - " + newRebel);
+           newRebel.delete().catch(O_o=>{}); 
+           newRebel.author.send("ممنوع روآبط الدسكورد. \n إذآ كنت تريد النشر توآصل من الإدآرة.");
+    }
+});
+  
 
 
 
