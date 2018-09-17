@@ -2744,7 +2744,7 @@ message.channel.stopTyping()
      let embed = new Discord.RichEmbed()
   .setAuthor(message.author.username)
   .setColor("#9B59B6")
-  .addField(" ** :gear: Server Support :gear: **" , "  **https://discord.gg/BUbjb9M**")
+  .addField(" ** :gear: Server Support :gear: **" , "  **https://discord.gg/kT9tSjv**")
      
      
   message.channel.sendEmbed(embed);
@@ -4530,6 +4530,44 @@ if(message.channel.type === "dm") return;
   
 
 
+
+client.on('message',async msg => {
+     if(msg.channel.type === "dm") return;
+  if(msg.author.bot) return;
+   var everyone = msg.guild.defaultRole;
+  var p = "+";
+  if(msg.content.startsWith(p + "setstats")) {
+  if(!msg.guild.member(msg.author).hasPermissions('MANAGE_CHANNELS')) return msg.reply('❌ **go play minecraft**');
+  if(!msg.guild.member(client.user).hasPermissions(['MANAGE_CHANNELS'])) return msg.reply('❌ **البوت لا يمتلك صلاحية**');
+  var ggg= msg.guild.createChannel('SERVER STATS', 'category').then(kk => {
+           var ccc =msg.guild.createChannel('SERVER STATS', 'voice').then(al => {
+                var aa =msg.guild.createChannel('SERVER STATS', 'voice').then(alp => {
+                   var aaa =msg.guild.createChannel('SERVER STATS', 'voice').then(alph => {
+                       var a =msg.guild.createChannel('SERVER STATS', 'voice').then(yo => {
+       al.setParent(kk);
+       alp.setParent(kk);
+       alph.setParent(kk);
+       yo.setParent(kk);
+     al.overwritePermissions(everyone, { CONNECT: false });
+      alp.overwritePermissions(everyone, { CONNECT: false });
+       alph.overwritePermissions(everyone, { CONNECT: false });
+        yo.overwritePermissions(everyone, { CONNECT: false });
+  setInterval(() => {
+     al.setName('Members: ' + msg.guild.members.filter(m => !(m.user.bot)).size, 'voice');
+      alp.setName('Bots: ' + msg.guild.members.filter(m => m.user.bot).size, 'voice');
+        alph.setName('Text channels: ' + msg.guild.channels.filter(c => c.type == 'text').size, 'voice');
+         yo.setName('Voice channels: ' + (msg.guild.channels.filter(c => c.type == 'voice').size - 3), 'voice');
+ },1000);
+                       })
+                   })
+    
+                })
+           })
+  })
+           
+  }
+ 
+});
 
 
 
