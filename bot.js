@@ -2842,16 +2842,7 @@ if(!message.channel.guild) return;
 
 
 			      
-client.on('guildCreate', guild => {
-  client.channels.get("468911065095208980").send(`**Woops new server ✅
-Server name: __${guild.name}__
-Server owner: __${guild.owner}__**`)
-});
-client.on("guildDelete", guild => {
- client.channels.get("468911065095208980").send(`**Rmoved From server :x:
-Server name: __${guild.name}__
-Server owner: __${guild.owner}__**`)
-});
+
 
 			      client.on("message", (message) => {
     if (message.content.startsWith('-delet')) {
